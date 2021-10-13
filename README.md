@@ -1,5 +1,5 @@
 # Interactive board table
-This is a project that aims at making any table interactive to add fun at parties and board games. 
+This is a project that aims at making any table interactive to add fun at parties and board games.<br/>
 I'm in charge of the programming of the microcontroller connected to different sensors (IR/RGB cameras) and other components (speakers, etc...), while my friend makes the main C++ program runing on a computer.
 
 ## Description 
@@ -23,7 +23,7 @@ This should allow the computer to manage board games, add cool effects on the ta
 
   
 ## Demo
-Here you can see a demo of the project making the wall touch-sensitive. Remi hold the stylus in his hand and click on the wall, making the program to click on the computer.
-At the end, he click on the glass tracking app icon, which launches it and opens it. You can see two new icons : one to reset the trackers, which basically re-scan the table for new glasses, and the other one to close the application. 
+Here you can see a demo of the project making the wall touch-sensitive. Remi hold the stylus in his hand and click on the wall, making the program to click on the computer.<br/>
+At the end, he click on the glass tracking app icon, which launches it and opens it. You can see two new icons : one to reset the trackers, which basically re-scan the table for new glasses, and the other one to close the application.
 
 ![demo](https://user-images.githubusercontent.com/18093026/105180130-125c8100-5b22-11eb-830f-0aa012456ed6.gif)
