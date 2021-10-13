@@ -1,0 +1,8 @@
+IR camera resolution : 128 x 96 pixels
+theorical angles of view : 33° horizontal, 23° vertical
+measured angles of view : 37.5° horizontal, 29° vertical
+wires colours : red = +5V, black = GROUND, green = SCL, yellow = SDA
+
+x E [0 ; 1023]
+y E [0 ; 767]
+
