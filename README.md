@@ -1,5 +1,5 @@
 # Interactive board table
-This is a project that aims at making any table interactive to add fun at parties and board games.
+This is a project that aims at making any table interactive to add fun at parties and board games. 
 I'm in charge of the programming of the microcontroller connected to different sensors (IR/RGB cameras) and other components (speakers, etc...), while my friend makes the main C++ program runing on a computer.
 
 ## Description 
