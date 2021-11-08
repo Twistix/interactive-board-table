@@ -4,7 +4,7 @@ import serial
 import time
 import win32api,win32con
 
-com = input('Quel COM ?\n')
+com = "COM3"
 ser = serial.Serial(com)
 calibration = 0
 
@@ -14,6 +14,9 @@ def click(x,y):
     win32api.SetCursorPos((x,y))
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x,y,0,0)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
+
+def move(x,y):
+    win32api.SetCursorPos((x,y))
 
 while calibration == 0 :
     data = str(ser.readline())
@@ -30,35 +33,16 @@ while 1 :
     data = data.replace("b'","")
     data = data.replace("\\r\\n'","")
     print(data)
-    j,k,r=0,0,0
-    while(j<2):
-        if (data[j+k]==",") :
-            pointIR[0][j]=float(data[j+k-r:j+k])
-            j+=1
-            r=1
-        else :
-            r+=1
-        k+=1
 
+    index = []  # creation d'un tableau index
+    curr = 0    # position actuelle dans la data string
+    nbSeparators = 2   # nombre de séparateurs ,
+    for i in range(nbSeparators) :  # on parcours toute la data string et on savegarde les index ou on trouve un ","
+        curr = data.index(",",curr+1)
+        index.append(curr)
+    pointIR[0][0] = float(data[0:index[0]])
+    pointIR[0][1] = float(data[index[0]+1:index[1]])
 
-    if pointIR[0][0]+pointIR[0][1] < 4 :
-        click(int(pointIR[0][0]*1920),int(pointIR[0][1]*1080))
+    if pointIR[0][0] >= 0 and pointIR[0][0] <= 1 and pointIR[0][1] >= 0 and pointIR[0][1] <= 1 :
+        move(int(pointIR[0][0]*1920),int(pointIR[0][1]*1080))
 
-    print(pointIR)
-
-
-
-
-''' i,j,k,r=0,0,0,0
-    while(i<4):
-        while(j<2):
-            if (data[i+j+k]==",") :
-                pointIR[i][j]=float(data[i+j+k-r:i+j+k])
-                j+=1
-                r=1
-            else :
-                r+=1
-            k+=1
-        r=0
-        j=0
-        i+=1 '''
